@@ -142,7 +142,8 @@ public class Database {
 		Map<String, Long> estudiantesPorGrupo = students.stream()
 			.collect(Collectors.groupingBy(Student::getGroup, Collectors.counting()));
 			
-		System.out.println(estudiantesPorGrupo);
+		System.out.printf("1 CFGS DAM: %d%n1 CFGM SMR: %d%n",
+				estudiantesPorGrupo.get("1º CFGS DAM"), estudiantesPorGrupo.get("1º CFGM SMR"));
 	}
 	
 	//14
@@ -151,7 +152,8 @@ public class Database {
 			.map(n -> n.getGrant())
 			.collect(Collectors.summarizingInt(n -> n));
 		
-		System.out.println(estadisticas);
+		System.out.printf("Máxima: %s Mínima: %s Promedio: %s%n", 
+				estadisticas.getMax(), estadisticas.getMin(), estadisticas.getAverage());
 	}
 	
 	//15
